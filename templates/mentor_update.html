@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                <h1 class="justify-content-center">Teacher Update</h1>
+                    <div class="contact-form bg-secondary rounded p-5">
+                        <div id="success"></div>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="control-group">
+                                <label for="title">Full Name</label>
+                                <input type="text" value="{{ teacher.full_name }}" name="full_name" class="form-control border-0 p-4"  id="full_name" placeholder="Full Name" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input class="form-control border-0 py-3 px-4" type="text" name="position" value="{{ teacher.position }}" id="position" placeholder="Position" required="required" data-validation-required-message="Please enter your message"></input>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="url" class="form-control border-0 p-4" name="social_link_telegram" value="{{ teacher.social_link_telegram }}" id="social_link_telegram" placeholder="Social Link Telegram" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="url" class="form-control border-0 p-4" name="social_link_linkedin" value="{{ teacher.social_link_linkedin }}" id="social_link_linkedin" placeholder="Social Link Linkedin" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            <div class="control-group">
+                                <input type="url" class="form-control border-0 p-4" name="social_link_youtube" value="{{ teacher.social_link_youtube }}" id="social_link_youtube" placeholder="Social Link Youtube" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="datetime-local" class="form-control border-0 p-4" name="updated" value="{{ teacher.updated }}" id="updated" placeholder="Updated" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
